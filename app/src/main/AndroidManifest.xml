@@ -10,6 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Guia7">
         <activity
+            android:name=".PlayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfigActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DatosActivity"
+            android:exported="true"
+            android:label="Mis datos" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
