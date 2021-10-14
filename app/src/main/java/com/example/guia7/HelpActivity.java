@@ -9,8 +9,8 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class HelpActivity extends AppCompatActivity {
-    TextView tvNumber;
-    public SharedPreferences sharedPreferences;
+    private TextView tvNumber;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
