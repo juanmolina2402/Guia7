@@ -3,14 +3,20 @@ package com.example.guia7;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PlayActivity extends AppCompatActivity {
-    public SharedPreferences sharedPreferences;
-    TextView tvUser;
+    private SharedPreferences sharedPreferences;
+    private TextView tvUser, tvIntent;
+    private EditText edtNumber;
+    private int i = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +28,44 @@ public class PlayActivity extends AppCompatActivity {
         }
 
         tvUser = findViewById(R.id.tvUser);
+        tvIntent = findViewById(R.id.tvIntent);
+        edtNumber = findViewById(R.id.edtNumber);
         addToTextView();
+
+        Button btnAccept = findViewById(R.id.btnAccept);
+        btnAccept.setOnClickListener(aux -> {
+            play();
+        });
     }
 
     private void addToTextView(){
         sharedPreferences = getSharedPreferences("configuration", MODE_PRIVATE);
         if(sharedPreferences != null){
             tvUser.setText(sharedPreferences.getString("USER", ""));
+        }
+    }
+
+    private void play(){
+        int x = Integer.parseInt(edtNumber.getText().toString());
+        if(x > 0 && x < 11){
+            sharedPreferences = getSharedPreferences("configuration", MODE_PRIVATE);
+            if(edtNumber.getText().toString().equals(sharedPreferences.getString("NUMBER", ""))){
+                Toast.makeText(PlayActivity.this, "Felicidades, ¡has ganado!", Toast.LENGTH_SHORT).show();
+                finish();
+            }else{
+                int k = Integer.parseInt(edtNumber.getText().toString());
+                int j = Integer.parseInt(sharedPreferences.getString("NUMBER", ""));
+                if(k > j){
+                    Toast.makeText(PlayActivity.this, "El numero oculto es menor", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(PlayActivity.this, "El numero oculto es mayor", Toast.LENGTH_SHORT).show();
+                }
+                i--;
+                tvIntent.setText("Intentos : " + i);
+                edtNumber.setText("");
+            }
+        }else{
+            Toast.makeText(PlayActivity.this, "Número fuera de rango", Toast.LENGTH_SHORT).show();
         }
     }
 

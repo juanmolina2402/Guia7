@@ -53,7 +53,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.1"
         android:inputType="number"
-        android:hint="Ingrese número"/>
+        android:maxLength="2"
+        android:hint="Ingrese un número del 1 al 10"/>
 
     <Button
         android:id="@+id/btnAccept"
