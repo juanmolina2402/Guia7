@@ -52,7 +52,6 @@ public class ConfigActivity extends AppCompatActivity {
             editorConfig.putString("SCORE", "0");
             editorConfig.commit();
             Toast.makeText(ConfigActivity.this, "El usuario se guardó con éxito", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(ConfigActivity.this, MainActivity.class));
             finish();
         }else{
             Toast.makeText(ConfigActivity.this, "Por favor, llene todos los campos", Toast.LENGTH_SHORT).show();
