@@ -29,7 +29,7 @@ public class ScoreActivity extends AppCompatActivity {
     private void addToTextView(){
         sharedPreferences = getSharedPreferences("configuration", MODE_PRIVATE);
         tvName.setText(sharedPreferences.getString("USER", ""));
-        tvScore.setText(sharedPreferences.getString("NUMBER", ""));
+        tvScore.setText(sharedPreferences.getString("SCORE", ""));
     }
 
     @Override

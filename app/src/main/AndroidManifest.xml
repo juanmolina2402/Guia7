@@ -11,9 +11,11 @@
         android:theme="@style/Theme.Guia7">
         <activity
             android:name=".ScoreActivity"
+            android:label="Ver puntaje"
             android:exported="false" />
         <activity
             android:name=".HelpActivity"
+            android:label="Respuesta correcta"
             android:exported="false" />
         <activity
             android:name=".PlayActivity"

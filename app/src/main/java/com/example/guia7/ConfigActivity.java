@@ -15,7 +15,7 @@ public class ConfigActivity extends AppCompatActivity {
     private EditText edtUser;
     private Button btnSave;
     public static String FILE_CONF = "configuration";
-    public SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,7 @@ public class ConfigActivity extends AppCompatActivity {
             SharedPreferences.Editor editorConfig = sharedPreferences.edit();
             editorConfig.putString("USER", edtUser.getText().toString());
             editorConfig.putString("NUMBER", String.valueOf(numero));
+            editorConfig.putString("SCORE", "0");
             editorConfig.commit();
             Toast.makeText(ConfigActivity.this, "El usuario se guardó con éxito", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(ConfigActivity.this, MainActivity.class));
