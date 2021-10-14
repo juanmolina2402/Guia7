@@ -10,11 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Guia7">
         <activity
-            android:name=".PlayActivity"
+            android:name=".ScoreActivity"
             android:exported="false" />
         <activity
-            android:name=".ConfigActivity"
+            android:name=".HelpActivity"
             android:exported="false" />
+        <activity
+            android:name=".PlayActivity"
+            android:exported="false"
+            android:label="Jugar" />
+        <activity
+            android:name=".ConfigActivity"
+            android:exported="false"
+            android:label="Configuración" />
         <activity
             android:name=".DatosActivity"
             android:exported="true"

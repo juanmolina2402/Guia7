@@ -8,28 +8,26 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class PlayActivity extends AppCompatActivity {
+public class HelpActivity extends AppCompatActivity {
+    TextView tvNumber;
     public SharedPreferences sharedPreferences;
-    TextView tvUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_play);
+        setContentView(R.layout.activity_help);
 
         if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        tvUser = findViewById(R.id.tvUser);
+        tvNumber = findViewById(R.id.tvNumber);
         addToTextView();
     }
 
     private void addToTextView(){
         sharedPreferences = getSharedPreferences("configuration", MODE_PRIVATE);
-        if(sharedPreferences != null){
-            tvUser.setText(sharedPreferences.getString("USER", ""));
-        }
+        tvNumber.setText(sharedPreferences.getString("NUMBER", ""));
     }
 
     @Override

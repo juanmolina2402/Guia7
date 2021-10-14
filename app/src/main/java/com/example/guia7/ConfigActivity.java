@@ -38,16 +38,17 @@ public class ConfigActivity extends AppCompatActivity {
     private void addToEditText(){
         sharedPreferences = getSharedPreferences(FILE_CONF, MODE_PRIVATE);
         if(sharedPreferences != null){
-            String x = sharedPreferences.getString("USER", "");
-            edtUser.setText(x);
+            edtUser.setText(sharedPreferences.getString("USER", ""));
         }
     }
 
     private void addUser() {
         if(!edtUser.getText().toString().isEmpty()) {
+            int numero = (int) (Math.random() * 10) + 1;
             sharedPreferences = getSharedPreferences(FILE_CONF, MODE_PRIVATE);
             SharedPreferences.Editor editorConfig = sharedPreferences.edit();
             editorConfig.putString("USER", edtUser.getText().toString());
+            editorConfig.putString("NUMBER", String.valueOf(numero));
             editorConfig.commit();
             Toast.makeText(ConfigActivity.this, "El usuario se guardó con éxito", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(ConfigActivity.this, MainActivity.class));
